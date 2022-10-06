@@ -25,26 +25,26 @@
     var playerOne = playerMoves[0][0];
 
     function playerColour(x) {
-        return x === playerOne ? "b" : "w";
+        return x === playerOne ? 'b' : 'w';
     }
 
     function formatMove([player, move]) {
         switch (move) {
-            case "r":
-                return ":r" + playerColour(player);
-            case "s":
-                return ":s";
-            case "p":
-                return ":p";
+            case 'r':
+                return ':r' + playerColour(player);
+            case 's':
+                return ':s';
+            case 'p':
+                return ':p';
             default:
                 return move;
         }
     }
-    var str = playerMoves.map(formatMove).join("");
-    var redblue = "c1,";
-    var blackwhite = ",";
+    var str = playerMoves.map(formatMove).join('');
+    var redblue = 'c1,';
+    var blackwhite = ',';
     var colourChoice = redblue;
-    var boardURL = "https://hexworld.org/board/";
-    var analysisLink = boardURL + "#" + boardSize + colourChoice + str;
-    window.open(analysisLink, "_blank");
+    var boardURL = 'https://hexworld.org/board/';
+    var analysisLink = boardURL + '#' + boardSize + colourChoice + str;
+    window.open(analysisLink, '_blank');
 })();
