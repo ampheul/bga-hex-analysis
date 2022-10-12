@@ -1,6 +1,9 @@
 (function() {
+    var logsReplay = ['gamelogreview', x=>x.map(y=>y.textContent)];
+    var logsLive = ['log_replayable',x=>x.map(y=>y.firstChild.innerText).reverse()];
+    var [logsClass, extractLogs] = /replay/.test(window.location.href) ? logsReplay : logsLive;
 
-    var logs = Array.from(document.getElementsByClassName('log_replayable')).map(x => x.firstChild.innerText).reverse();
+    var logs = extractLogs(Array.from(document.getElementsByClassName(logsClass)));
 
     var regularMove = /([\w ]+) plays at ([a-z]+\d+)$/;
     var swapMove = /([\w ]+) (s)waps$/;
